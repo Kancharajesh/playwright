@@ -76,7 +76,7 @@ test("Sidebar buttons should be clickable", async ({page})=>{
 });
 
 
-test.only("should redirect to Welcome page if not logged in", async ({ page }) => {
+test("should redirect to Welcome page if not logged in", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
