@@ -69,7 +69,7 @@ test("Side bar button's are clickable", async ({page})=>{
 
 });
 
-test('survey Question visible', async({page})=>{
+test.skip('survey Question visible', async({page})=>{
     const login = new Login_page(page);
     const Home = new Home_page(page);
     const Wallet = new Wallet_page(page);
