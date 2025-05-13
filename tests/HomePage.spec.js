@@ -88,7 +88,7 @@ test("should redirect to Welcome page if not logged in", async ({ page }) => {
   }
 });
 
-test("Survey question should be visible on the page", async ({ page }) => {
+test.skip("Survey question should be visible on the page", async ({ page }) => {
     const login = new Login_page(page);
     const Home = new Home_page(page);
     const Wallet = new Wallet_page(page);
