@@ -15,7 +15,7 @@ test("Profile page is Visible", async ({ page }) => {
   //Lunch the Browser.
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -27,10 +27,10 @@ test("Profile page is Visible", async ({ page }) => {
   await page.waitForTimeout(13000);
 
   // Switch to profile screen
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await expect(page.locator(Profile.Fullprofilepage)).toBeVisible();
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
 });
 
 test("transaction History Screens are visible", async ({ page }) => {
@@ -43,7 +43,7 @@ test("transaction History Screens are visible", async ({ page }) => {
   //Lunch the Browser.
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -52,15 +52,15 @@ test("transaction History Screens are visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await page.locator(Profile.View_All).click({ timeout: 200000 });
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
   //transaction History
   await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   const couponText = await page.locator(Profile.History_allcoupons).innerText();
   console.log("Coupon Text:", couponText);
@@ -76,7 +76,7 @@ test("transaction History Cash Screen is visible", async ({ page }) => {
   //Lunch the Browser.
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -85,17 +85,17 @@ test("transaction History Cash Screen is visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
   await page.locator(Profile.View_All).click({ timeout: 20000 });
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   //transaction History
   await page.locator(Profile.History_Cash).click();
   await expect(page.locator(Profile.History_allCash)).toBeVisible();
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   const couponText = await page.locator(Profile.History_allCash).innerText();
   console.log("Coupon Text:", couponText);
@@ -111,7 +111,7 @@ test("Logout and check the URL", async ({ page }) => {
   //Lunch the Browser.
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -120,17 +120,17 @@ test("Logout and check the URL", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+    await page.waitForTimeout(8000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
   await page.locator(Profile.Logout).click({ timeout: 20000 });
-  //   await page.waitForTimeout(2000);
+  //     await page.waitForTimeout(8000);
   await page.locator(Profile.Logout_yes).click();
 
   await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
   await page.reload();
-  await page.waitForTimeout(2000);
+    await page.waitForTimeout(8000);
   await page.goBack();
   await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
 });
