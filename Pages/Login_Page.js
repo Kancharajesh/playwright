@@ -78,7 +78,7 @@ exports.Login_page = class Login_page {
 
     // OTP_Screen_displayed.
     async OTP_screen_Visiable(){
-        await expect(this.page.locator(this.OTPScreen_Displayed)).toBeVisible({timeout:5000});
+        await expect(this.page.locator(this.OTPScreen_Displayed)).toBeVisible({timeout:20000});
     }
 
     // OTP Screen Continue

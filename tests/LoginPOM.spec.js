@@ -61,7 +61,7 @@ test("Invalid OTP should show error message", async ({ page }) => {
     const errorText = await page.locator(login.Incorrect_OTP_Text).textContent();
     console.log("OTP Error Message:", errorText?.trim());
   
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(10000);
   });
   
 

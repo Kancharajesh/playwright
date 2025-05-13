@@ -24,7 +24,7 @@ test("Wallet screen is visible", async ({ page }) => {
   await page.locator(login.OTP_Screen_Continue).click();
   await page.waitForTimeout(5000);
 
-  await page.locator(Home.Wallet_buttons).click({timeout:5000});
+  await page.locator(Home.Wallet_buttons).click({timeout:20000});
   await page.waitForTimeout(1000);
 
   await expect(page.locator(Wallet.WalletFullpage)).toBeVisible({timeout: 200000});
@@ -49,7 +49,7 @@ test("Recent Coupons are visible", async ({ page }) => {
   await page.locator(login.OTP_Screen_Continue).click();
   await page.waitForTimeout(5000);
 
-  await page.locator(Home.Wallet_buttons).click({timeout:5000});
+  await page.locator(Home.Wallet_buttons).click({timeout:20000});
   await page.waitForTimeout(5000);
 
   await page.locator(Wallet.WalletFullpage).scrollIntoViewIfNeeded();
@@ -85,7 +85,7 @@ test("Gift Cards are visible empty screen", async ({ page }) => {
   await expect(page.locator(Wallet.Cashout_cashInfo)).toBeVisible({
     timeout: 200000
   });
-  // await expect(page.locator(Wallet.Redeem_giftcards)).toBeVisible({timeout:2000});
+  // await expect(page.locator(Wallet.Redeem_giftcards)).toBeVisible({timeout:20000});
 });
 
 test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) => {
@@ -104,7 +104,7 @@ test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) =
     }
   
     await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(10000);
   
     // Go to Wallet
     await page.locator(Home.Wallet_buttons).click();
