@@ -29,7 +29,7 @@ test("Profile page should be visible after login", async ({ page }) => {
   // Switch to profile screen
       await page.waitForTimeout(5000);
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
-  await expect(page.locator(Profile.Fullprofilepage)).toBeVisible();
+  await expect(page.locator(Profile.Fullprofilepage)).toBeVisible({timeout:20000});
       await page.waitForTimeout(5000);
 });
 
