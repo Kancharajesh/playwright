@@ -5,7 +5,7 @@ import { Wallet_page } from "../Pages/Wallet_page";
 import { Survey_Details } from "../Pages/Survey_Deatils";
 import { profile_page } from "../Pages/Profile_page";
 
-test("Wallet screen is visible", async ({ page }) => {
+test("Wallet screen should be visible", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -30,7 +30,7 @@ test("Wallet screen is visible", async ({ page }) => {
   await expect(page.locator(Wallet.WalletFullpage)).toBeVisible({timeout: 200000});
 });
 
-test("Recent Coupons are visible", async ({ page }) => {
+test("Recent coupons should be visible", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -56,7 +56,7 @@ test("Recent Coupons are visible", async ({ page }) => {
   await expect(page.locator(Wallet.Recentcoupons)).toBeVisible();
 });
 
-test("Gift Cards are visible empty screen", async ({ page }) => {
+test("Gift cards screen should be visible, even when empty", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);

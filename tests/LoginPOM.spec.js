@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { Login_page } from "../Pages/Login_Page";
 import { Console, log } from "console";
 
-test("Valid OTP", async ({ page }) => {
+test("Should allow login with a valid OTP", async ({ page }) => {
   const login = new Login_page(page);
 
   // launch the Website
@@ -32,7 +32,7 @@ test("Valid OTP", async ({ page }) => {
 
 });
 
-test("Invalid OTP should show error message", async ({ page }) => {
+test("Should display an error message for an invalid OTP", async ({ page }) => {
     const login = new Login_page(page);
     await login.LoginWebiste();
     await login.Enter_mobileNumber("9705210647");

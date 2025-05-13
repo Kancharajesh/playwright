@@ -5,7 +5,13 @@ import { Wallet_page } from "../Pages/Wallet_page";
 import { Survey_Deatils, Survey_Details } from "../Pages/Survey_Deatils";
 import { profile_page } from "../Pages/Profile_page";
 
-test("Home page is visible", async ({ page }) => {
+  const protectedRoutes = [
+  "https://irctc.superj.app/Home",
+  "https://irctc.superj.app/Profile",
+  "https://irctc.superj.app/rewards"
+];
+
+test("Home page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -34,7 +40,7 @@ test("Home page is visible", async ({ page }) => {
 });
 
 
-test("Side bar button's are clickable", async ({page})=>{
+test("Sidebar buttons should be clickable", async ({page})=>{
     const login = new Login_page(page);
     const Home = new Home_page(page);
     const Wallet = new Wallet_page(page);
@@ -69,7 +75,20 @@ test("Side bar button's are clickable", async ({page})=>{
 
 });
 
-test.skip('survey Question visible', async({page})=>{
+
+test.only("should redirect to Welcome page if not logged in", async ({ page }) => {
+  const login = new Login_page(page);
+  const Home = new Home_page(page);
+  const Wallet = new Wallet_page(page);
+  const Survey = new Survey_Deatils(page);
+
+  for (const url of protectedRoutes) {
+    await page.goto(url);
+    await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
+  }
+});
+
+test("Survey question should be visible on the page", async ({ page }) => {
     const login = new Login_page(page);
     const Home = new Home_page(page);
     const Wallet = new Wallet_page(page);
@@ -100,11 +119,12 @@ test.skip('survey Question visible', async({page})=>{
       
     await page.locator(Survey.selectoption).click({timeout:20000});
     await page.locator(Survey.survey_Next).click({timeout:20000});
-    await page.waitForTimeout(5000);
-    await page.locator(Survey.selectoption).click({timeout:20000});
-    await page.locator(Survey.survey_Next).click({timeout:20000});
-    await page.waitForTimeout(5000);
-    await page.locator(Survey.selectoption).click({timeout:20000});
-    await page.locator(Survey.survey_Next).click({timeout:20000});
+    // await page.waitForTimeout(5000);
+    // await page.locator(Survey.selectoption).click({timeout:20000});
+    // await page.locator(Survey.survey_Next).click({timeout:20000});
+    // await page.waitForTimeout(5000);
+    // await page.locator(Survey.selectoption).click({timeout:20000});
+    // await page.locator(Survey.survey_Next).click({timeout:20000});
     await page.waitForTimeout(15000);
 });
+
