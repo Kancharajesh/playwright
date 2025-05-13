@@ -8,7 +8,7 @@ test("Valid OTP", async ({ page }) => {
   // launch the Website
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Check if OTP screen is visible
   await expect(page.locator(login.OTPScreen_Displayed)).toBeVisible();
@@ -22,11 +22,11 @@ test("Valid OTP", async ({ page }) => {
   await login.OTP__5("7");
   await login.OTP__6("7");
 
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Submit
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await expect(page.locator(login.Homepage)).toBeVisible();
 
@@ -36,7 +36,7 @@ test("Invalid OTP should show error message", async ({ page }) => {
     const login = new Login_page(page);
     await login.LoginWebiste();
     await login.Enter_mobileNumber("9705210647");
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   
     // Check if OTP screen is visible
     await expect(page.locator(login.OTPScreen_Displayed)).toBeVisible();
@@ -50,7 +50,7 @@ test("Invalid OTP should show error message", async ({ page }) => {
     await login.OTP__5("1");
     await login.OTP__6("1");
   
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   
     // Submit
     await page.locator(login.OTP_Screen_Continue).click();
@@ -61,7 +61,7 @@ test("Invalid OTP should show error message", async ({ page }) => {
     const errorText = await page.locator(login.Incorrect_OTP_Text).textContent();
     console.log("OTP Error Message:", errorText?.trim());
   
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
   });
   
 

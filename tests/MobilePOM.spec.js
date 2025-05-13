@@ -40,9 +40,9 @@ test("Logout", async ({ page }) => {
 
 test("Navigate and Validate Survey Home", async ({ page }) => {
   await loginAndEnterOTP(page, "9705210647", "777777");
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
   await page.locator("div:nth-child(4)").first().click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
   await expect(page.locator(".__className_fbe417 > div > div")).toBeVisible();
 });
 

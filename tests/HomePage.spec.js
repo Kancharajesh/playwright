@@ -13,7 +13,7 @@ test("Home page is visible", async ({ page }) => {
   // Launch and login
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9885060891");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -22,14 +22,14 @@ test("Home page is visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await expect(page.locator(Home.FUllSide_Bar)).toBeVisible({timeout:20000});
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await page.reload();
   await expect(page).toHaveURL("https://irctc.superj.app/Home");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
 });
 
@@ -43,7 +43,7 @@ test("Side bar button's are clickable", async ({page})=>{
     // Launch and login
     await login.LoginWebiste();
     await login.Enter_mobileNumber("9705210647");
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   
     // Enter OTP
     const otp = ["7", "7", "7", "7", "7", "7"];
@@ -52,19 +52,19 @@ test("Side bar button's are clickable", async ({page})=>{
     }
   
     await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
     await page.locator(Home.Wallet_buttons).click();
     await expect(page).toHaveURL("https://irctc.superj.app/rewards");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
     await page.locator(Home.Profile_buttons).click();
     await expect(page).toHaveURL("https://irctc.superj.app/profile");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
     await page.locator(Home.Home_buttons).click();
     await expect(page).toHaveURL("https://irctc.superj.app/Home");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
 
 });
@@ -79,7 +79,7 @@ test.skip('survey Question visible', async({page})=>{
     // Launch and login
     await login.LoginWebiste();
     await login.Enter_mobileNumber("9705210647");
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   
     // Enter OTP
     const otp = ["7", "7", "7", "7", "7", "7"];
@@ -88,22 +88,22 @@ test.skip('survey Question visible', async({page})=>{
     }
   
     await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
     // Survey Card -1.
     await page.locator(Survey.Card1).click({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     await page.locator(Survey.Survey_preview).click({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     await expect(page.locator(Survey.Survey_Question_1)).toBeVisible({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
       
     await page.locator(Survey.selectoption).click({timeout:20000});
     await page.locator(Survey.survey_Next).click({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     await page.locator(Survey.selectoption).click({timeout:20000});
     await page.locator(Survey.survey_Next).click({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     await page.locator(Survey.selectoption).click({timeout:20000});
     await page.locator(Survey.survey_Next).click({timeout:20000});
     await page.waitForTimeout(15000);

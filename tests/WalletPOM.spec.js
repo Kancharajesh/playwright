@@ -13,7 +13,7 @@ test("Wallet screen is visible", async ({ page }) => {
   // Launch and login
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9885060891");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -22,10 +22,10 @@ test("Wallet screen is visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await page.locator(Home.Wallet_buttons).click({timeout:20000});
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   await expect(page.locator(Wallet.WalletFullpage)).toBeVisible({timeout: 200000});
 });
@@ -38,7 +38,7 @@ test("Recent Coupons are visible", async ({ page }) => {
   // Launch and login
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9885060891");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -47,10 +47,10 @@ test("Recent Coupons are visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await page.locator(Home.Wallet_buttons).click({timeout:20000});
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await page.locator(Wallet.WalletFullpage).scrollIntoViewIfNeeded();
   await expect(page.locator(Wallet.Recentcoupons)).toBeVisible();
@@ -64,7 +64,7 @@ test("Gift Cards are visible empty screen", async ({ page }) => {
   // Launch and login
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9885060891");
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Enter OTP
   const otp = ["7", "7", "7", "7", "7", "7"];
@@ -73,10 +73,10 @@ test("Gift Cards are visible empty screen", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   await page.locator(Home.Wallet_buttons).click();
-    await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
 
   // Switch to Gift cards
   await page.locator(Wallet.Cashout_botton).click();
@@ -96,7 +96,7 @@ test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) =
     // Login
     await login.LoginWebiste();
     await login.Enter_mobileNumber("9885060891");
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   
     const otp = ["7", "7", "7", "7", "7", "7"];
     for (let i = 0; i < otp.length; i++) {
@@ -104,11 +104,11 @@ test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) =
     }
   
     await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
   
     // Go to Wallet
     await page.locator(Home.Wallet_buttons).click();
-      await page.waitForTimeout(8000);
+        await page.waitForTimeout(5000);
     await page.locator(Wallet.Cashout_botton).click();
   
     // Wait for cash info
