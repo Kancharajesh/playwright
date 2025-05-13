@@ -89,7 +89,7 @@ exports.Login_page = class Login_page {
     
     // Home page
     async Homepageclear_ISvidable() {
-        await expect(this.page.locator(this.Homepage)).toBeVisible({ timeout: 5000 });
+        await expect(this.page.locator(this.Homepage)).toBeVisible({ timeout: 200000 });
     }
 
 

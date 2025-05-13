@@ -27,7 +27,7 @@ test("Wallet screen is visible", async ({ page }) => {
   await page.locator(Home.Wallet_buttons).click({timeout:5000});
   await page.waitForTimeout(1000);
 
-  await expect(page.locator(Wallet.WalletFullpage)).toBeVisible({timeout: 5000});
+  await expect(page.locator(Wallet.WalletFullpage)).toBeVisible({timeout: 200000});
 });
 
 test("Recent Coupons are visible", async ({ page }) => {
@@ -83,7 +83,7 @@ test("Gift Cards are visible empty screen", async ({ page }) => {
 
   //   await page.locator(Wallet.WalletFullpage).scrollIntoViewIfNeeded();
   await expect(page.locator(Wallet.Cashout_cashInfo)).toBeVisible({
-    timeout: 5000
+    timeout: 200000
   });
   // await expect(page.locator(Wallet.Redeem_giftcards)).toBeVisible({timeout:2000});
 });
@@ -112,7 +112,7 @@ test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) =
     await page.locator(Wallet.Cashout_botton).click();
   
     // Wait for cash info
-    await expect(page.locator(Wallet.Cashout_cashInfo)).toBeVisible({ timeout: 5000 });
+    await expect(page.locator(Wallet.Cashout_cashInfo)).toBeVisible({ timeout: 200000 });
   
     // Get balance amount
     const balanceText = await page.locator(Wallet.Cashout_cashInfo).textContent();

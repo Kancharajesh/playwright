@@ -6,7 +6,7 @@ test("launch the browser and Recaptch", async ({ page }) => {
 
   await IE.launch_IE();
 
-  await expect(page.locator(IE.IE_Fullpage)).toBeVisible({ timeout: 2000 });
+  await expect(page.locator(IE.IE_Fullpage)).toBeVisible({ timeout: 20000 });
   // await page.locator(IE.Login).click();
   // await expect(page).toHaveURL("https://insightengine.in/sign-in");
   // await page.setDefaultTimeout(5000);

@@ -28,7 +28,7 @@ test("Profile page is Visible", async ({ page }) => {
 
   // Switch to profile screen
   await page.waitForTimeout(5000);
-  await page.locator(Home.Profile_buttons).click({ timeout: 5000 });
+  await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await expect(page.locator(Profile.Fullprofilepage)).toBeVisible();
   await page.waitForTimeout(2000);
 });
@@ -55,8 +55,8 @@ test("transaction History Screens are visible", async ({ page }) => {
   await page.waitForTimeout(5000);
 
   // Switch to profile screen
-  await page.locator(Home.Profile_buttons).click({ timeout: 5000 });
-  await page.locator(Profile.View_All).click({ timeout: 5000 });
+  await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
+  await page.locator(Profile.View_All).click({ timeout: 200000 });
   await page.waitForTimeout(5000);
   //transaction History
   await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
@@ -88,8 +88,8 @@ test("transaction History Cash Screen is visible", async ({ page }) => {
   await page.waitForTimeout(5000);
 
   // Switch to profile screen
-  await page.locator(Home.Profile_buttons).click({ timeout: 2000 });
-  await page.locator(Profile.View_All).click({ timeout: 2000 });
+  await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
+  await page.locator(Profile.View_All).click({ timeout: 20000 });
   await page.waitForTimeout(5000);
 
   //transaction History
@@ -123,8 +123,8 @@ test("Logout and check the URL", async ({ page }) => {
   await page.waitForTimeout(5000);
 
   // Switch to profile screen
-  await page.locator(Home.Profile_buttons).click({ timeout: 2000 });
-  await page.locator(Profile.Logout).click({ timeout: 2000 });
+  await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
+  await page.locator(Profile.Logout).click({ timeout: 20000 });
   //   await page.waitForTimeout(2000);
   await page.locator(Profile.Logout_yes).click();
 

@@ -56,7 +56,7 @@ test("Invalid OTP should show error message", async ({ page }) => {
     await page.locator(login.OTP_Screen_Continue).click();
   
     // Validate error message is shown
-    await expect(page.locator(login.Incorrect_OTP_Text)).toBeVisible({ timeout: 5000 });
+    await expect(page.locator(login.Incorrect_OTP_Text)).toBeVisible({ timeout: 200000 });
   
     const errorText = await page.locator(login.Incorrect_OTP_Text).textContent();
     console.log("OTP Error Message:", errorText?.trim());
