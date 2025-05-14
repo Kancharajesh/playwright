@@ -23,7 +23,7 @@ test("Should allow login with a valid OTP", async ({ page }) => {
   await login.OTP__6("7");
 
     await page.waitForTimeout(5000);
-
+ 
   // Submit
   await page.locator(login.OTP_Screen_Continue).click();
       await page.waitForTimeout(5000);
