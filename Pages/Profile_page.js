@@ -4,6 +4,7 @@ const { expect } = require("@playwright/test");
 exports.Profile_page = class Profile_page {
 
     constructor(page){
+        
         this.page = page;
 
         //Profile button.
