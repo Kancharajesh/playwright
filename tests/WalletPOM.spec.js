@@ -15,7 +15,7 @@ test("Wallet screen should be visible", async ({ page }) => {
   await login.Enter_mobileNumber("9885060891");
     await page.waitForTimeout(5000);
 
-  // Enter OTP
+  // Enter OTP 
   const otp = ["7", "7", "7", "7", "7", "7"];
   for (let i = 0; i < otp.length; i++) {
     await login[`OTP__${i + 1}`](otp[i]);

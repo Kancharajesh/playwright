@@ -11,7 +11,7 @@ test("launch the browser and Recaptch", async ({ page }) => {
   // await page.locator(IE.Login).click();
   // await expect(page).toHaveURL("https://insightengine.in/sign-in");
   // await page.setDefaultTimeout(5000);
-
+ 
   await page.locator(IE.email_field).scrollIntoViewIfNeeded();
   await page.locator(IE.email_field).fill("abc@gmail.com");
 

@@ -10,7 +10,7 @@ const loginAndEnterOTP = async (page, mobile, otp = "777777") => {
     await page.getByRole("textbox", { name: `Please enter OTP character ${i + 1}` }).fill(otp[i]);
   }
 };
-
+ 
 test("Invalid Mobile Number text", async ({ page }) => {
   await page.goto("https://irctc.superj.app/Login");
   await page.getByRole("button", { name: "Get OTP" }).click();

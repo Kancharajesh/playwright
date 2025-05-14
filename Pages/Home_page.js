@@ -3,7 +3,7 @@ const { expect } = require("@playwright/test");
 exports.Home_page = class Home_page {
 
     constructor(page) {
-        this.page = page;
+        this.page = page; 
 
     //Side Bar.
      this.Home_buttons = "img[alt='Home']";

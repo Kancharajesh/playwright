@@ -12,7 +12,7 @@ test.only("Profile page should be visible after login", async ({ page }) => {
   const Profile = new Profile_page(page);
   const Survey = new Survey_Deatils(page);
 
-  //Lunch the Browser.
+  //Lunch the Browser. 
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9705210647");
       await page.waitForTimeout(5000);

@@ -20,7 +20,7 @@ test("Should allow login with a valid OTP", async ({ page }) => {
   await login.OTP__3("7");
   await login.OTP__4("7");
   await login.OTP__5("7");
-  await login.OTP__6("7");
+  await login.OTP__6("7"); 
 
     await page.waitForTimeout(5000);
  

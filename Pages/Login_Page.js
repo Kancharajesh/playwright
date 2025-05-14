@@ -4,7 +4,7 @@ exports.Login_page = class Login_page {
 
     constructor(page) {
         this.page = page;
-
+ 
         //Welcome Page.
         this.loginButton = '.Navbar_link__9Nm3x';
 
