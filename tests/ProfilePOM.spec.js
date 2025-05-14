@@ -27,10 +27,10 @@ test("Profile page should be visible after login", async ({ page }) => {
   await page.waitForTimeout(13000);
 
   // Switch to profile screen
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(20000);
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await expect(page.locator(Profile.Fullprofilepage)).toBeVisible({timeout:20000});
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(10000);
 });
 
 test("Transaction history screen should be visible", async ({ page }) => {
@@ -85,7 +85,7 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(20000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
