@@ -5,7 +5,7 @@ import { Profile_page } from "../Pages/Profile_page";
 import { Wallet_page } from "../Pages/Wallet_page";
 import { Survey_Deatils } from "../Pages/Survey_Deatils";
 
-test.only("Profile page should be visible after login", async ({ page }) => {
+test("Profile page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
