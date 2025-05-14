@@ -11,6 +11,7 @@ exports.Home_page = class Home_page {
      this.Profile_buttons = "img[alt='Profile']";
 
      this.FUllSide_Bar = ".Sidebar_sidebar__v6daX";
+     this.Surveys_screen = "(//div)[21]"
 
      // all 12 Survey care showing.
      this.First_survey_card = "(//div[@class='SurveyCard_cardContainer__9fG_1'])[1]";
@@ -44,6 +45,10 @@ exports.Home_page = class Home_page {
     // Survey Cards.
     async surveycards_Homepage (){
         await this.page.locator(this.First_survey_card);
+    }
+
+    async Surveysscreen (){
+        await this.page.locator(this.Surveys_screen);
     }
 
     

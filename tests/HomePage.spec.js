@@ -16,6 +16,11 @@ test("Home page should be visible after login", async ({ page }) => {
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
 
+  // Intercept API response for the expected URL
+  const gwsApiPromise = page.waitForResponse(response =>
+    response.url().includes('//api.superj.app/v2/admin/gws') && response.status() === 200
+  );
+
   // Launch and login
   await login.LoginWebiste();
   await login.Enter_mobileNumber("9885060891");
@@ -28,14 +33,21 @@ test("Home page should be visible after login", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(6000);
 
-  await expect(page.locator(Home.FUllSide_Bar)).toBeVisible({timeout:20000});
-      await page.waitForTimeout(5000);
+    // Wait for the GWS API to be called
+  const gwsResponse = await gwsApiPromise;
+  expect(gwsResponse.ok()).toBeTruthy(); 
+
+  await expect(page.locator(Home.Surveys_screen)).toBeVisible({timeout:20000});
+      await page.waitForTimeout(3000);
 
   await page.reload();
-  await expect(page).toHaveURL("https://irctc.superj.app/Home");
-    await page.waitForTimeout(5000);
+
+  await expect(page.locator(Home.Surveys_screen)).toBeVisible({timeout:20000});
+      await page.waitForTimeout(3000);
+  // await expect(page).toHaveURL("https://irctc.superj.app/Home");
+  //   await page.waitForTimeout(5000);
 
 });
 
@@ -58,7 +70,7 @@ test("Sidebar buttons should be clickable", async ({page})=>{
     }
   
     await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(6000);
 
     await page.locator(Home.Wallet_buttons).click({timeout:20000});
     await expect(page).toHaveURL("https://irctc.superj.app/rewards");

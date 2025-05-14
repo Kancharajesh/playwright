@@ -85,7 +85,7 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });

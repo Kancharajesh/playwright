@@ -21,6 +21,7 @@ exports.IE_page = class IE_page {
 
     this.email_field = "//input[@placeholder='Enter email address']";
     this.Re_captcha = "div[class='flex justify-center items-center md:mr-12']";
+    this.SelectRe_captch ="//div[@class='recaptcha-checkbox-border']"
   }
 
   //Lunch the Browser
@@ -62,5 +63,9 @@ exports.IE_page = class IE_page {
 
   async Recaptcha() {
     await this.page.loactor(this.Re_captcha);
+  }
+
+  async s_Recaptcha(){
+    await this.page.loactor(this.SelectRe_captch);
   }
 };
