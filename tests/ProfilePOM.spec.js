@@ -5,7 +5,7 @@ import { Profile_page } from "../Pages/Profile_page";
 import { Wallet_page } from "../Pages/Wallet_page";
 import { Survey_Deatils } from "../Pages/Survey_Deatils";
 
-test("Profile page should be visible after login", async ({ page }) => {
+test.only("Profile page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -24,13 +24,13 @@ test("Profile page should be visible after login", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(13000);
+  await page.waitForTimeout(5000);
 
   // Switch to profile screen
-      await page.waitForTimeout(20000);
+    await page.waitForTimeout(10000);
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await expect(page.locator(Profile.Fullprofilepage)).toBeVisible({timeout:20000});
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
 });
 
 test("Transaction history screen should be visible", async ({ page }) => {
@@ -85,7 +85,7 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-      await page.waitForTimeout(20000);
+    await page.waitForTimeout(10000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });

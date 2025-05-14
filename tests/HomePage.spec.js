@@ -28,10 +28,10 @@ test("Home page should be visible after login", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-      await page.waitForTimeout(20000);
+    await page.waitForTimeout(10000);
 
   await expect(page.locator(Home.FUllSide_Bar)).toBeVisible({timeout:20000});
-      await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
 
   await page.reload();
   await expect(page).toHaveURL("https://irctc.superj.app/Home");
@@ -62,15 +62,15 @@ test("Sidebar buttons should be clickable", async ({page})=>{
 
     await page.locator(Home.Wallet_buttons).click({timeout:20000});
     await expect(page).toHaveURL("https://irctc.superj.app/rewards");
-    await page.waitForTimeout(15000);
+    await page.waitForTimeout(3000);
 
     await page.locator(Home.Profile_buttons).click({timeout:20000});
     await expect(page).toHaveURL("https://irctc.superj.app/profile");
-    await page.waitForTimeout(15000);
+    await page.waitForTimeout(3000);
 
     await page.locator(Home.Home_buttons).click({timeout:20000});
     await expect(page).toHaveURL("https://irctc.superj.app/Home");
-    await page.waitForTimeout(15000);
+    // await page.waitForTimeout(5000);
 
 
 });

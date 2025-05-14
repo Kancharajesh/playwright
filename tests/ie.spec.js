@@ -5,7 +5,7 @@ test("launch the browser and Recaptch", async ({ page }) => {
   const IE = new IE_page(page);
 
   await IE.launch_IE();
-  await page.waitForTimeout(20000);
+  await page.waitForTimeout(8000);
 
   await expect(page.locator(IE.IE_Fullpage)).toBeVisible({ timeout: 20000 });
   // await page.locator(IE.Login).click();
@@ -16,5 +16,5 @@ test("launch the browser and Recaptch", async ({ page }) => {
   await page.locator(IE.email_field).fill("abc@gmail.com");
 
   await expect(page.locator(IE.Re_captcha)).toBeVisible();
-  await page.waitForTimeout(15000);
+  await page.waitForTimeout(5000);
 });
