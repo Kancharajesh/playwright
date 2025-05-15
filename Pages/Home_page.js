@@ -15,6 +15,7 @@ exports.Home_page = class Home_page {
      // all 12 Survey care showing.
      this.First_survey_card = "(//div[@class='SurveyCard_cardContainer__9fG_1'])[1]";
 
+     this.Surveys_screen = "(//div)[21]";
      
 
 }   
@@ -46,6 +47,9 @@ exports.Home_page = class Home_page {
         await this.page.locator(this.First_survey_card);
     }
 
+    async surveysscreen (){
+        await this.page.locator(this.Surveys_screen);
+    }
     
 
 }

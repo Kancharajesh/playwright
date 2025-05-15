@@ -95,7 +95,7 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
 
   // Wait for the GWS API to be called
   const gwsResponse = await gwsApiPromise;
-  expect(gwsResponse.ok()).toBeTruthy(); // Asserts status 2xx
+  expect(gwsResponse.ok()).toBeTruthy(); 
 
   // Verify that the home screen is visible after login
   await expect(page.locator(Home.Surveys_screen)).toBeVisible();
