@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { Login_page } from "../Pages/Login_Page";
+import { Home_page } from '../Pages/Home_page';
 import { Console, log } from "console";
 
 test("Should allow login with a valid OTP", async ({ page }) => {
@@ -63,6 +64,43 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
   
     await page.waitForTimeout(5000);
   });
+
+  test("Should allow login with a valid OTP and call GWS API", async ({ page }) => {
+  const login = new Login_page(page);
+  const Home = new Home_page(page);
+
+  // Intercept API response for the expected URL
+  const gwsApiPromise = page.waitForResponse(response =>
+    response.url().includes('//api.superj.app/v2/admin/gws') && response.status() === 200
+  );
+
+  // Launch and login steps
+  await login.LoginWebiste();
+  await login.Enter_mobileNumber("9705210647");
+  await page.waitForTimeout(5000);
+
+  await expect(page.locator(login.OTPScreen_Displayed)).toBeVisible();
+  await login.OTP_screen_Visiable();
+
+  // Enter valid OTP
+  await login.OTP__1("7");
+  await login.OTP__2("7");
+  await login.OTP__3("7");
+  await login.OTP__4("7");
+  await login.OTP__5("7");
+  await login.OTP__6("7");
+
+  await page.locator(login.OTP_Screen_Continue).click();
+  await page.waitForTimeout(5000);
+
+  // Wait for the GWS API to be called
+  const gwsResponse = await gwsApiPromise;
+  expect(gwsResponse.ok()).toBeTruthy(); // Asserts status 2xx
+
+  // Verify that the home screen is visible after login
+  await expect(page.locator(Home.Surveys_screen)).toBeVisible();
+});
+
   
 
   
