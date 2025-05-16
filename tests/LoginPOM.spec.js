@@ -5,6 +5,7 @@ import { Console, log } from "console";
 
 test("Should allow login with a valid OTP", async ({ page }) => {
   const login = new Login_page(page);
+  const Home = new Home_page(page);
 
   // launch the Website
   await login.LoginWebiste();
@@ -29,7 +30,7 @@ test("Should allow login with a valid OTP", async ({ page }) => {
   await page.locator(login.OTP_Screen_Continue).click();
       await page.waitForTimeout(5000);
 
-  await expect(page.locator(login.Homepage)).toBeVisible();
+  await expect(page.locator(Home.Surveys_screen)).toBeVisible();
 
 });
 

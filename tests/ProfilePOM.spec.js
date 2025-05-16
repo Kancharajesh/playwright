@@ -62,8 +62,8 @@ test("Transaction history screen should be visible", async ({ page }) => {
   await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
       await page.waitForTimeout(3000);
 
-  const couponText = await page.locator(Profile.History_allcoupons).innerText();
-  console.log("Coupon Text:", couponText);
+  // const couponText = await page.locator(Profile.History_allcoupons).innerText();
+  // console.log("Coupon Text:", couponText);
 });
 
 test("Transaction history cash screen should be visible", async ({ page }) => {
@@ -97,8 +97,8 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
   await expect(page.locator(Profile.History_allCash)).toBeVisible();
       await page.waitForTimeout(3000);
 
-  const couponText = await page.locator(Profile.History_allCash).innerText();
-  console.log("Coupon Text:", couponText);
+  // const couponText = await page.locator(Profile.History_allCash).innerText();
+  // console.log("Coupon Text:", couponText);
 });
 
 test("Logout and verify the URL after logging out", async ({ page }) => {
