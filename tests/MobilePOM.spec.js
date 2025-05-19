@@ -63,7 +63,7 @@ test('Home page is visible', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Please enter OTP character 6' }).fill('7');
   await page.waitForTimeout(2000);
 
-  await page.locator(Mobile.gotoHomePage);
+  await page.locator(Mobile.gotoHomePage); //change
   await expect(page).toHaveURL("https://superj.app/Home");
   await page.waitForTimeout(2000);
 
@@ -76,6 +76,6 @@ test('Home page is visible', async ({ page }) => {
   await page.getByRole("img", { name: "profile icon" }).click();
   await page.locator(Mobile.isProfileVisible);
   await expect(page).toHaveURL("https://superj.app/profile");
-  
+
 });
 
