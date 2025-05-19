@@ -3,8 +3,9 @@ const { expect } = require("@playwright/test");
 
 exports.Profile_page = class Profile_page {
 
-    constructor(page){ 
-        this.page = page;
+    constructor(page){
+
+        this.page = page; 
 
         //Profile button.
         this.profilebutton= "//img[@alt='Profile']";

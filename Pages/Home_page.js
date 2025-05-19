@@ -3,7 +3,7 @@ const { expect } = require("@playwright/test");
 exports.Home_page = class Home_page {
 
     constructor(page) {
-        this.page = page;
+        this.page = page; 
 
     //Side Bar.
      this.Home_buttons = "img[alt='Home']";
@@ -16,6 +16,7 @@ exports.Home_page = class Home_page {
      // all 12 Survey care showing.
      this.First_survey_card = "(//div[@class='SurveyCard_cardContainer__9fG_1'])[1]";
 
+     this.Surveys_screen = "(//div)[21]";
      
 
 }   
@@ -51,6 +52,9 @@ exports.Home_page = class Home_page {
         await this.page.locator(this.Surveys_screen);
     }
 
+    async surveysscreen (){
+        await this.page.locator(this.Surveys_screen);
+    }
     
 
 }

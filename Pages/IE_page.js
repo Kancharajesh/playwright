@@ -2,7 +2,7 @@ const { expect } = require("@playwright/test");
 const { time } = require("console");
 
 exports.IE_page = class IE_page {
-  constructor(page) {
+  constructor(page) { 
     this.page = page;
 
     // TOP buttons.

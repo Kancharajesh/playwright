@@ -1,4 +1,5 @@
 import { test, expect, devices } from "@playwright/test";
+import { Mobileelements_page } from "../Pages/Mobileelements_page";
 
 test.use({ ...devices["Pixel 5"] });
 
@@ -10,7 +11,7 @@ const loginAndEnterOTP = async (page, mobile, otp = "777777") => {
     await page.getByRole("textbox", { name: `Please enter OTP character ${i + 1}` }).fill(otp[i]);
   }
 };
-
+ 
 test("Invalid Mobile Number text", async ({ page }) => {
   await page.goto("https://irctc.superj.app/Login");
   await page.getByRole("button", { name: "Get OTP" }).click();
@@ -46,12 +47,12 @@ test.skip("Navigate and Validate Survey Home", async ({ page }) => {
   await expect(page.locator(".__className_fbe417 > div > div")).toBeVisible();
 });
 
-test('testss', async ({ page }) => {
+test('Home page is visible', async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
+
   await page.goto('https://superj.app/Login');
   await expect(page.getByText('Login to Start 💰+91Enter')).toBeVisible();
-  await page.getByRole('textbox', { name: 'phone-number-input' }).click();
   await page.getByRole('textbox', { name: 'phone-number-input' }).fill('97052 10647');
-  await page.getByRole('button', { name: 'Get OTP' }).click();
   await page.getByRole('button', { name: 'Get OTP' }).click();
   await page.getByRole('textbox', { name: 'Please enter OTP character 1' }).click();
   await page.getByRole('textbox', { name: 'Please enter OTP character 1' }).fill('7');
@@ -60,6 +61,21 @@ test('testss', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Please enter OTP character 4' }).fill('7');
   await page.getByRole('textbox', { name: 'Please enter OTP character 5' }).fill('7');
   await page.getByRole('textbox', { name: 'Please enter OTP character 6' }).fill('7');
-  await expect(page.locator('.flex > .flex > div')).toBeVisible();
+  await page.waitForTimeout(2000);
+
+  await page.locator(Mobile.gotoHomePage); //change
+  await expect(page).toHaveURL("https://superj.app/Home");
+  await page.waitForTimeout(2000);
+
+  await page.getByRole("link", { name: "wallet Wallet" }).click();
+  await page.locator(Mobile.isWalletPageVisible);
+  await expect(page).toHaveURL("https://superj.app/rewards");
+  await page.waitForTimeout(2000);
+
+
+  await page.getByRole("img", { name: "profile icon" }).click();
+  await page.locator(Mobile.isProfileVisible);
+  await expect(page).toHaveURL("https://superj.app/profile");
 
 });
+

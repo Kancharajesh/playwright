@@ -27,10 +27,10 @@ test("Profile page should be visible after login", async ({ page }) => {
   await page.waitForTimeout(5000);
 
   // Switch to profile screen
-    await page.waitForTimeout(10000);
+      await page.waitForTimeout(5000);
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await expect(page.locator(Profile.Fullprofilepage)).toBeVisible({timeout:20000});
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
 });
 
 test("Transaction history screen should be visible", async ({ page }) => {
@@ -57,13 +57,13 @@ test("Transaction history screen should be visible", async ({ page }) => {
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await page.locator(Profile.View_All).click({ timeout: 200000 });
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
   //transaction History
   await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
 
-  const couponText = await page.locator(Profile.History_allcoupons).innerText();
-  console.log("Coupon Text:", couponText);
+  // const couponText = await page.locator(Profile.History_allcoupons).innerText();
+  // console.log("Coupon Text:", couponText);
 });
 
 test("Transaction history cash screen should be visible", async ({ page }) => {
@@ -85,20 +85,20 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
   }
 
   await page.locator(login.OTP_Screen_Continue).click();
-    await page.waitForTimeout(5000);
+      await page.waitForTimeout(5000);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
   await page.locator(Profile.View_All).click({ timeout: 20000 });
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
 
   //transaction History
   await page.locator(Profile.History_Cash).click();
   await expect(page.locator(Profile.History_allCash)).toBeVisible();
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
 
-  const couponText = await page.locator(Profile.History_allCash).innerText();
-  console.log("Coupon Text:", couponText);
+  // const couponText = await page.locator(Profile.History_allCash).innerText();
+  // console.log("Coupon Text:", couponText);
 });
 
 test("Logout and verify the URL after logging out", async ({ page }) => {

@@ -22,16 +22,15 @@ test("Should allow login with a valid OTP", async ({ page }) => {
   await login.OTP__3("7");
   await login.OTP__4("7");
   await login.OTP__5("7");
-  await login.OTP__6("7");
+  await login.OTP__6("7"); 
 
     await page.waitForTimeout(5000);
-
+ 
   // Submit
   await page.locator(login.OTP_Screen_Continue).click();
       await page.waitForTimeout(5000);
 
   await expect(page.locator(Home.Surveys_screen)).toBeVisible();
-  // await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
 
 });
 
@@ -66,7 +65,6 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
   
     await page.waitForTimeout(5000);
   });
-  
 
   test("Should allow login with a valid OTP and call GWS API", async ({ page }) => {
   const login = new Login_page(page);
@@ -104,4 +102,7 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
   await expect(page.locator(Home.Surveys_screen)).toBeVisible();
 });
 
+  
+
+  
   
