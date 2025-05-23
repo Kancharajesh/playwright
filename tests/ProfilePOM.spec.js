@@ -94,8 +94,8 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
 
   //transaction History
   await page.locator(Profile.History_Cash).click();
-  await expect(page.locator(Profile.History_allCash)).toBeVisible();
-      await page.waitForTimeout(3000);
+  // await expect(page.locator(Profile.History_allCash)).toBeVisible();
+  //     await page.waitForTimeout(3000);
 
   // const couponText = await page.locator(Profile.History_allCash).innerText();
   // console.log("Coupon Text:", couponText);

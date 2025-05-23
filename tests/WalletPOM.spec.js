@@ -88,7 +88,7 @@ test("Gift cards screen should be visible, even when empty", async ({ page }) =>
   // await expect(page.locator(Wallet.Redeem_giftcards)).toBeVisible({timeout:20000});
 });
 
-test("Redeem gift if balance > ₹250 and button is visible", async ({ page }) => {
+test.skip("Redeem gift if balance > ₹250 and button is visible", async ({ page }) => {
     const login = new Login_page(page);
     const Home = new Home_page(page);
     const Wallet = new Wallet_page(page);

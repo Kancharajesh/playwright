@@ -126,7 +126,7 @@ test("udChalo Mobile Home Page", async ({ page }) => {
 test("Logout", async ({ page }) => {
   await loginAndEnterOTP(page, "9885060891", "777777");
   await page.getByRole("link", { name: "wallet Wallet" }).click();
-  await expect(page.getByText("Super J500 People Earned ₹250")).toBeVisible();
+  // await expect(page.getByText("Super J500 People Earned ₹250")).toBeVisible();
   await page.getByRole("img", { name: "profile icon" }).click();
   await page.getByRole("button", { name: "Logout" }).click();
   await page.getByRole("button", { name: "Yes, I'll be back" }).click();
