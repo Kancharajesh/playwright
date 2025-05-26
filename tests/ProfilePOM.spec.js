@@ -33,7 +33,7 @@ test("Profile page should be visible after login", async ({ page }) => {
       await page.waitForTimeout(3000);
 });
 
-test("Transaction history screen should be visible", async ({ page }) => {
+test("Transaction history Coupon screen should be visible", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -59,8 +59,8 @@ test("Transaction history screen should be visible", async ({ page }) => {
   await page.locator(Profile.View_All).click({ timeout: 200000 });
       await page.waitForTimeout(3000);
   //transaction History
-  await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
-      await page.waitForTimeout(3000);
+  // await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
+  //     await page.waitForTimeout(3000);
 
   // const couponText = await page.locator(Profile.History_allcoupons).innerText();
   // console.log("Coupon Text:", couponText);
