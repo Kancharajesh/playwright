@@ -126,7 +126,7 @@ test.skip("Redeem gift if balance > ₹250 and button is visible", async ({ page
         await redeemButton.click();
         console.log("Redeem button clicked.");
       } else {
-        console.log("Redeem button not visible or not rendered.");
+        console.log("Redeem button not visible.");
       }
     } else {
       console.log("Balance less than ₹250. Skipping redeem.");
