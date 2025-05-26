@@ -72,10 +72,10 @@ test("Superj Mobile Home Page", async ({ page }) => {
   );
   await Superj_app(page, "9705210647", "777777");
   // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
   await page.reload();
   await expect(page).toHaveURL("https://superj.app/Home");
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
 });
 
 test("IRCTC Air Mobile Home Page", async ({ page }) => {
@@ -87,10 +87,10 @@ test("IRCTC Air Mobile Home Page", async ({ page }) => {
   );
   await loginAndEnterOTP(page, "9705210647", "777777");
   // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
   await page.reload();
   await expect(page).toHaveURL("https://irctc.superj.app/Home");
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
 });
 
 test("IRCTC tourisum Mobile Home Page", async ({ page }) => {
@@ -102,10 +102,10 @@ test("IRCTC tourisum Mobile Home Page", async ({ page }) => {
   );
   await IRCTCTourisum(page, "9885060891", "777777");
   // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
   await page.reload();
   await expect(page).toHaveURL("https://irctctourism.superj.app/Home");
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
 });
 
 test("udChalo Mobile Home Page", async ({ page }) => {
@@ -117,10 +117,10 @@ test("udChalo Mobile Home Page", async ({ page }) => {
   );
   await UdChaloLogin(page, "9885060891", "777777");
   // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
   await page.reload();
   await expect(page).toHaveURL("https://udchalo.superj.app/Home");
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(4000);
 });
 
 test("Logout", async ({ page }) => {
