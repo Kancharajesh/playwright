@@ -186,3 +186,53 @@ test("Home page is visible", async ({ page }) => {
   await page.locator(Mobile.isProfileVisible);
   await expect(page).toHaveURL("https://superj.app/profile");
 });
+
+
+
+// tests/mobile-login.spec.ts
+// import { test, expect, devices } from "@playwright/test";
+// import { loginToApp } from "./auth-utils";
+
+// test.use({ ...devices["Pixel 5"] });
+
+// test("Invalid mobile number shows error", async ({ page }) => {
+//   await page.goto("https://irctc.superj.app/Login");
+//   await page.getByRole("button", { name: "Get OTP" }).click();
+//   await expect(page.getByText("Please enter a valid phone")).toBeVisible();
+// });
+
+// test("Invalid OTP shows error", async ({ page }) => {
+//   await loginToApp(page, "irctc", "9705210647", "123456");
+//   await expect(page.getByText("Please enter a valid otp")).toBeVisible();
+// });
+
+// test("SuperJ login redirects to Home", async ({ page }) => {
+//   await loginToApp(page, "superj", "9705210647");
+//   await expect(page).toHaveURL("https://superj.app/Home");
+// });
+
+// test("IRCTC Air login redirects to Home", async ({ page }) => {
+//   await loginToApp(page, "irctc", "9705210647");
+//   await expect(page).toHaveURL("https://irctc.superj.app/Home");
+// });
+
+// test("IRCTC Tourism login redirects to Home", async ({ page }) => {
+//   await loginToApp(page, "irctctourism", "9885060891");
+//   await expect(page).toHaveURL("https://irctctourism.superj.app/Home");
+// });
+
+// test("UdChalo login redirects to Home", async ({ page }) => {
+//   await loginToApp(page, "udchalo", "9885060891");
+//   await expect(page).toHaveURL("https://udchalo.superj.app/Home");
+// });
+
+// test("Logout redirects to login", async ({ page }) => {
+//   await loginToApp(page, "irctc", "9885060891");
+
+//   await page.getByRole("link", { name: "wallet Wallet" }).click();
+//   await page.getByRole("img", { name: "profile icon" }).click();
+//   await page.getByRole("button", { name: "Logout" }).click();
+//   await page.getByRole("button", { name: "Yes, I'll be back" }).click();
+
+//   await expect(page).toHaveURL("https://irctc.superj.app/Login");
+// });

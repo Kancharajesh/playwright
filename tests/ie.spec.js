@@ -1,6 +1,9 @@
 const { test, expect } = require("@playwright/test");
 const { IE_page } = require("../Pages/IE_page");
 
+const Test_Email = "Test@gmail.com";
+const BASE_URL = "https://insightengine.in";
+
 test("Launch InsightEngine and check Recaptcha", async ({ page }) => {
   const IE = new IE_page(page);
 
@@ -8,7 +11,6 @@ test("Launch InsightEngine and check Recaptcha", async ({ page }) => {
   await IE.isFullPageVisible();
   await IE.fillEmailField("abc@gmail.com");
   await IE.verifyRecaptchaVisible();
-
   await page.waitForTimeout(2000);
 });
 

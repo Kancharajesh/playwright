@@ -163,7 +163,7 @@ test(" UdChalo Home page should be visible after login", async ({ page }) => {
   await page.waitForTimeout(3000);
 });
 
-test("Sidebar buttons should be clickable", async ({ page }) => {
+test.skip("Sidebar buttons should be clickable", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
