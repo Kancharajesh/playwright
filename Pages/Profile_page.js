@@ -14,10 +14,15 @@ exports.Profile_page = class Profile_page {
         this.Fullprofilepage = "(//div)[16]";
 
         // Check DID.
-        this.DID = "(//div)[20]";
+        this.DID = "//button[normalize-space()='Learn more about DID']";
+        this.Inside_DID = "//div[@class='DidPopup_didTextContainer__oi_5Q']";
 
         //Select Edit profile.
         this.EditProfile = "(//button[normalize-space()='Edit'])[1]";
+        this.Toast_message = page.locator("div[class='SubmitToast_toast__QpmQU undefined'] p");
+        this.e_pinCode = page.locator("//input[@id='pincode']");
+        this.e_email = page.locator("//input[@id='email']");
+        this.e_savebutton = page.locator("//button[normalize-space()='Save']");
 
         //Help & Support.
         this.Help_support = "(//p[normalize-space()='Help and support'])[1]";
@@ -113,5 +118,38 @@ exports.Profile_page = class Profile_page {
     async logCancel (){
         await this.page.locator(this.Logout_cancel);
     }
+
+ async Editprofile_toastmessage() {
+  await expect(this.Toast_message()).toBeVisible();
+}
+
+
+    // async Pincode_input(pincode){
+    //     await this.e_pinCode.fill(pincode);
+    // }
+
+    async email_input (edit_email){
+        await this.e_email.fill(this.e_email);
+    }
+
+    async save_button() {
+        await this.e_savebutton.click();
+    }
+
+    async Pincode_input(newPinCode) {
+  const currentValue = await this.e_pinCode.inputValue();
+
+  if (currentValue.length === 0) {
+    await this.e_pinCode.fill(newPinCode);
+    console.log("Pin code was empty, filled new value");
+  } else {
+    console.log("Pin code already filled, no action taken");
+  }
+}
+
+async InsideDID (){
+    await this.page.locator(this.Inside_DID);
+}
+
         
 }

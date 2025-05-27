@@ -102,7 +102,6 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
   await expect(page.locator(Home.Surveys_screen)).toBeVisible();
 });
 
-  
 
   
   

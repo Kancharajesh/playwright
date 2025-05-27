@@ -30,6 +30,7 @@ exports.Login_page = class Login_page {
 
         // Resend OTP.
         this.Resend_OTP = ".SignupModal_sendAgainText__LbfQ_";
+        this.Resend_OTP_Message = ".SignupModal_successText__gBN0J";
 
         // Incoreect OTP text.
         this.Incorrect_OTP_Text = ".SignupModal_errorTextOtp__7jrQU";
@@ -86,6 +87,11 @@ exports.Login_page = class Login_page {
         await this.page.locator(this.OTP_Screen_Continue).click();
     }
 
+    async Click_Resend_OTP(){
+        await this.page.locator(this.Resend_OTP).click();
+        await expect(this.page.locator(this.Resend_OTP_Message)).toBeVisible({timeout:20000});
+
+    }
     
     // Home page
     async Homepageclear_ISvidable() {

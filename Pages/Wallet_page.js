@@ -1,4 +1,5 @@
 import {test, expect}  from "@playwright/test";
+import { time } from "console";
 
 exports.Wallet_page = class Wallet_page {
 
@@ -19,8 +20,10 @@ exports.Wallet_page = class Wallet_page {
         this.MyGift_cards = "p[class='TabCouponsGift_navItem__g5DRD ']";
 
         // Empty state.
-
+        this.Redeemed_Coupons = "//div[@class='RecentCoupons_couponsGrid__7hCa3']";
+        this.Redeemed_giftcards = "//div[@class='Gift_sizing__mL1oH']";
         this.MyGift_cards_empty = ".Gift_container__UfEFq";
+        this.Giftcard_empty_state = "//div[@class='GiftCardEmptyState_emptyContainer__S_sdt']";
        
         //Recent Coupons Visiable.
         this.Recentcoupons = ".RecentCoupons_couponsGrid__7hCa3";
@@ -73,5 +76,17 @@ exports.Wallet_page = class Wallet_page {
 
     async Cash_Balance (){
         await this.page.locator(this.Cashbalance);
+    }
+
+    async Empty_state () {
+        await this.page.locator(this.Giftcard_empty_state);
+    }
+
+    async Redeemed_giftcardsss (){
+        await this.page.locator(this.Redeemed_giftcards);
+    }
+
+    async Redeemed_Couponss (){
+        await this.page.locator(this.Redeemed_Coupons);
     }
 }
