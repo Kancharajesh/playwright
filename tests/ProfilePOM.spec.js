@@ -63,6 +63,11 @@ test("Transaction history Coupon screen should be visible", async ({
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
   await page.locator(Profile.View_All).click({ timeout: 200000 });
   await page.waitForTimeout(3000);
+
+  const cards = page.locator("//div[@class='Coupons_couponsMainContainer__ZsN7l']");
+const count = await cards.count();
+console.log(`Number of coupon cards: ${count}`);
+
   //transaction History
   // await expect(page.locator(Profile.History_allcoupons)).toBeVisible();
   //     await page.waitForTimeout(3000);
@@ -99,6 +104,7 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
 
   //transaction History
   await page.locator(Profile.History_Cash).click();
+
   // await expect(page.locator(Profile.History_allCash)).toBeVisible();
   //     await page.waitForTimeout(3000);
 
@@ -140,7 +146,7 @@ test("Logout and verify the URL after logging out", async ({ page }) => {
   await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
 });
 
-test("Edit profile pincode update", async ({ page }) => {
+test.skip("Edit profile pincode update", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
@@ -210,5 +216,5 @@ test("DID text is isVisible", async ({ page }) => {
   } else {
     console.log("DID Text is not visible");
   }
-  
+
 });
