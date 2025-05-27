@@ -5,6 +5,7 @@ import { Profile_page } from "../Pages/Profile_page";
 import { Wallet_page } from "../Pages/Wallet_page";
 import { Survey_Deatils } from "../Pages/Survey_Deatils";
 import { profile } from "console";
+import { on } from "events";
 
 test("Profile page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
@@ -146,7 +147,7 @@ test("Logout and verify the URL after logging out", async ({ page }) => {
   await expect(page).toHaveURL("https://irctc.superj.app/Welcome");
 });
 
-test.skip("Edit profile pincode update", async ({ page }) => {
+test("Edit profile pincode update", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);
