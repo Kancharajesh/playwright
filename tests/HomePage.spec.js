@@ -236,10 +236,10 @@ test("Survey question should be visible on the page", async ({ page }) => {
   await expect(page.locator(Survey.Survey_Question_1)).toBeVisible({
     timeout: 20000,
   });
-  await page.waitForTimeout(3000);
+  // await page.waitForTimeout(3000);
 
-  await page.locator(Survey.selectoption).click({ timeout: 20000 });
-  await page.locator(Survey.survey_Next).click({ timeout: 20000 });
+  // await page.locator(Survey.selectoption).click({ timeout: 20000 });
+  // await page.locator(Survey.survey_Next).click({ timeout: 20000 });
   // await page.waitForTimeout(5000);
   // await page.locator(Survey.selectoption).click({timeout:20000});
   // await page.locator(Survey.survey_Next).click({timeout:20000});

@@ -193,6 +193,7 @@ test("DID text is isVisible", async ({ page }) => {
   await page.waitForTimeout(3000);
 
   // Enter OTP
+  
   const otp = ["7", "7", "7", "7", "7", "7"];
   for (let i = 0; i < otp.length; i++) {
     await login[`OTP__${i + 1}`](otp[i]);
