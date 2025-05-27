@@ -141,7 +141,7 @@ test.skip("Redeem gift if balance > ₹250 and button is visible", async ({
   }
 });
 
-test.only("Verify Gift Cards Empty State Screen Display", async ({ page }) => {
+test("Verify Gift Cards Empty State Screen Display", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
   const Wallet = new Wallet_page(page);

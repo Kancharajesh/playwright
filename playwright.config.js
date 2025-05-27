@@ -39,8 +39,6 @@ retries: process.env.CI ? 1 : 0,
 // -first-retry
   },
 
-
-
   /* Configure projects for major browsers */
   projects: [
     {
