@@ -7,6 +7,24 @@ import { Survey_Deatils } from "../Pages/Survey_Deatils";
 import { profile } from "console";
 import { on } from "events";
 
+async function loginUser (page, mobilenumber, OtpArray) {
+  const login = new Login_page(page);
+  await login.Enter_mobileNumber("9705210647");
+  await page.waitForTimeout(5000);
+
+  // Enter OTP
+  const otp = ["7", "7", "7", "7", "7", "7"];
+  for (let i = 0; i < otp.length; i++) {
+    await login[`OTP__${i + 1}`](otp[i]);
+  }
+    await page.locator(login.OTP_Screen_Continue).click();
+
+  // Wait a bit for login to complete
+  await page.waitForTimeout(3000);
+
+
+}
+
 test("Profile page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
@@ -16,17 +34,7 @@ test("Profile page should be visible after login", async ({ page }) => {
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9705210647", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.waitForTimeout(5000);
@@ -48,17 +56,7 @@ test("Transaction history Coupon screen should be visible", async ({
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9705210647", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 200000 });
@@ -86,17 +84,7 @@ test("Transaction history cash screen should be visible", async ({ page }) => {
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9885060891", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
@@ -122,17 +110,7 @@ test("Logout and verify the URL after logging out", async ({ page }) => {
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9705210647", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
@@ -156,17 +134,7 @@ test("Edit profile pincode update", async ({ page }) => {
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9885060891", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
@@ -189,18 +157,7 @@ test("DID text is isVisible", async ({ page }) => {
 
   //Lunch the Browser.
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(3000);
-
-  // Enter OTP
-  
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginUser(page, "9705210647", ["7","7","7","7","7","7" ]);
 
   // Switch to profile screen
   await page.locator(Home.Profile_buttons).click({ timeout: 20000 });
@@ -220,3 +177,12 @@ test("DID text is isVisible", async ({ page }) => {
   }
 
 });
+
+
+// test("lOgin", async({page})=>{
+
+//   const login  = new Login_page(page);
+//   await login.LoginWebiste();
+//   await loginUser(page, "9705210647", ["7","7","7","7","7","7" ]);
+
+// });
