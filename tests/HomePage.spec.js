@@ -11,6 +11,22 @@ const protectedRoutes = [
   "https://irctc.superj.app/rewards",
 ];
 
+async function loginSuperj(page, mobilenumber, OtpArray) {
+  const login = new Login_page(page);
+
+  await login.Enter_mobileNumber("9885060891");
+  await page.waitForTimeout(5000);
+
+  // Enter OTP
+  const otp = ["7", "7", "7", "7", "7", "7"];
+  for (let i = 0; i < otp.length; i++) {
+    await login[`OTP__${i + 1}`](otp[i]);
+  }
+
+  await page.locator(login.OTP_Screen_Continue).click();
+  await page.waitForTimeout(5000);
+}
+
 test(" IRCTC AIR Home page should be visible after login", async ({ page }) => {
   const login = new Login_page(page);
   const Home = new Home_page(page);
@@ -25,17 +41,7 @@ test(" IRCTC AIR Home page should be visible after login", async ({ page }) => {
 
   // Launch and login
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9885060891");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginSuperj(page, "9885060891", ["7", "7", "7", "7", "7", "7"]);
 
   // Wait for the GWS API to be called
   const gwsResponse = await gwsApiPromise;
@@ -139,17 +145,7 @@ test(" UdChalo Home page should be visible after login", async ({ page }) => {
 
   // Launch and login
   await page.goto("https://udchalo.superj.app/Welcome");
-  await login.Enter_mobileNumber("9885060891");
-  await page.waitForTimeout(5000);
-
-  // Enter OTP
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(5000);
+  await loginSuperj(page, "9705210647", ["7", "7", "7", "7", "7", "7"]);
 
   // Wait for the GWS API to be called
   const gwsResponse = await gwsApiPromise;
@@ -261,16 +257,7 @@ test.skip("Same question shouldn't show after reload", async ({ page }) => {
 
   // Launch and login
   await login.LoginWebiste();
-  await login.Enter_mobileNumber("9705210647");
-  await page.waitForTimeout(2000);
-
-  const otp = ["7", "7", "7", "7", "7", "7"];
-  for (let i = 0; i < otp.length; i++) {
-    await login[`OTP__${i + 1}`](otp[i]);
-  }
-
-  await page.locator(login.OTP_Screen_Continue).click();
-  await page.waitForTimeout(3000);
+  await loginSuperj(page, "9885060891", ["7", "7", "7", "7", "7", "7"]);
 
   // Open the survey preview from Card 1
   await page.locator(Survey.Card1).click({ timeout: 10000 });
@@ -296,7 +283,10 @@ test.skip("Same question shouldn't show after reload", async ({ page }) => {
   await page.waitForTimeout(3000);
 
   // Check that selected option text is not visible again (i.e. question changed)
-  const isSameOptionVisible = await page.locator(`text="${selectedOptionText}"`).isVisible().catch(() => false);
+  const isSameOptionVisible = await page
+    .locator(`text="${selectedOptionText}"`)
+    .isVisible()
+    .catch(() => false);
 
   expect(isSameOptionVisible).toBeFalsy(); // ✅ Assertion
 });
