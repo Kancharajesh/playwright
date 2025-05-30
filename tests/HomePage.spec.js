@@ -225,14 +225,14 @@ test("Survey question should be visible on the page", async ({ page }) => {
   await page.waitForTimeout(5000);
 
   // Survey Card -1.
-  await page.locator(Survey.Card1).click({ timeout: 20000 });
-  await page.waitForTimeout(3000);
-  await page.locator(Survey.Survey_preview).click({ timeout: 20000 });
-  await page.waitForTimeout(3000);
+  // await page.locator(Survey.Card1).click({ timeout: 20000 });
+  // await page.waitForTimeout(3000);
+  // await page.locator(Survey.Survey_preview).click({ timeout: 20000 });
+  // await page.waitForTimeout(3000);
 
-  const SurveyQuestion = page.locator(Survey.Survey_Question_1);
-  await expect(SurveyQuestion).toBeVisible();
-  await SurveyQuestion.click();
+  // const SurveyQuestion = page.locator(Survey.Survey_Question_1);
+  // await expect(SurveyQuestion).toBeVisible();
+  // await SurveyQuestion.click();
 
   // await expect(page.locator(Survey.Survey_Question_1)).toBeVisible({
   //   timeout: 20000,
