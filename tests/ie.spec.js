@@ -28,5 +28,6 @@ test("Navigate to Pricing and verify section", async ({ page }) => {
   await IE.clickResources();
   await IE.isResourecesPageVisible();
   await expect(page).toHaveURL("https://insightengine.in/resources/casestudy");
-
 });
+
+

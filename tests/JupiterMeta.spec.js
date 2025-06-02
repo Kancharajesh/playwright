@@ -22,7 +22,7 @@ test("launch the jupiterMeta.io", async ({ page }) => {
   await page
     .locator("input[placeholder='Enter your work email']")
     .fill("test@example.com");
-
+ 
   await page.locator("button[value='get in touch button']").click();
 
   await expect(page.locator(".ContactUs_errorMessage__yA5Hh")).toBeVisible({
@@ -86,3 +86,22 @@ test("Check DID Count is Visible", async ({ page }) => {
   const text = await CountLocator.innerText();
   console.log("DID Count Text:", text);
 });
+
+// test("click actions", async ({ page }) => {
+//   const JM = new JM_page(page);
+
+//   await JM.launchjupitermeta();
+
+//  // Click on the button that opens a new tab
+// const [newPage] = await Promise.all([
+//   page.context().waitForEvent('page'),
+//   IE.Home_DownloadNow() // This should trigger the new tab
+// ]);
+
+// // Wait for the new tab to load
+// await newPage.waitForLoadState();
+
+// // Verify the URL in the new tab
+// await expect(newPage).toHaveURL("https://linktr.ee/Super_J?utm_source=JM&utm_medium=website&utm_campaign=redirect");
+// });
+

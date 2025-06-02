@@ -23,6 +23,10 @@ export class JM_page {
     this.DID_Count = page.locator(
       "(//div[@class='DidCounter_counterContainer__zpwWl'])[1]"
     );
+
+    this.Home_DownloadNow = page.locator(
+      "(//button[@value='main jm button'])[1]"
+    );
   }
 
   async launchjupitermeta() {
@@ -53,5 +57,9 @@ export class JM_page {
     await this.DID_Count.scrollIntoViewIfNeeded();
     await expect(this.DID_Count).toBeVisible({ timeout: 10000 });
     return this.DID_Count;
+  }
+
+  async H_DownloadNow() {
+    await this.Home_DownloadNow.click();
   }
 }
