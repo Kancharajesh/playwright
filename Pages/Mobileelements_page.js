@@ -30,8 +30,13 @@ exports.Mobileelements_page = class Mobileelements_page {
 
     // Profile page
     this.Profile_fullview = ".profile_container__CYebx";
-  }
+  
+    // Survey card
+    this.surveyCard = "(//div)[48]";
+    this.Survey_previewbutton = "//div[@class='clickable-effect']";
+    this.Questionscreen = "//body/div/div/main/div/div/div/div[2]/div[1]/div[1]/div[1]"; 
 
+  }
   // ---------- Homepage ----------
   async gotoHomePage() {
     await this.page.locator(this.MHome_page).scrollIntoViewIfNeeded();
@@ -100,4 +105,23 @@ exports.Mobileelements_page = class Mobileelements_page {
   async isProfileVisible() {
     await expect(this.page.locator(this.Profile_fullview)).toBeVisible();
   }
+
+  // ---------- Survey ----------
+  async surveyCard_1 (){
+    await this.page.locator(this.surveyCard).click();
+  }
+
+  async survey_preview_start(){
+    await this.page.locator(this.Survey_previewbutton).click();
+  }
+
+  async verifyQuestionScreen(){
+    await expect(this.page.locator(this.Questionscreen)).toBeVisible();
+  }
+
+
+
 };
+
+
+ 

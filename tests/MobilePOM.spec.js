@@ -64,6 +64,7 @@ test("Mobile OTP Screen - Invalid OTP", async ({ page }) => {
 });
 
 test("Superj Mobile Home Page", async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
   // Intercept API response for the expected URL
   const gwsApiPromise = page.waitForResponse(
     (response) =>
@@ -76,9 +77,18 @@ test("Superj Mobile Home Page", async ({ page }) => {
   await page.reload();
   await expect(page).toHaveURL("https://superj.app/Home");
   await page.waitForTimeout(4000);
+  await Mobile.surveyCard_1();
+  await page.waitForTimeout(2000);
+
+  await Mobile.survey_preview_start();
+  await page.waitForTimeout(2000);
+
+  await Mobile.verifyQuestionScreen();
+  await page.waitForTimeout(2000);
 });
 
 test("IRCTC Air Mobile Home Page", async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
   // Intercept API response for the expected URL
   const gwsApiPromise = page.waitForResponse(
     (response) =>
@@ -94,6 +104,7 @@ test("IRCTC Air Mobile Home Page", async ({ page }) => {
 });
 
 test("IRCTC tourisum Mobile Home Page", async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
   // Intercept API response for the expected URL
   const gwsApiPromise = page.waitForResponse(
     (response) =>
@@ -109,6 +120,7 @@ test("IRCTC tourisum Mobile Home Page", async ({ page }) => {
 });
 
 test("udChalo Mobile Home Page", async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
   // Intercept API response for the expected URL
   const gwsApiPromise = page.waitForResponse(
     (response) =>
@@ -187,7 +199,30 @@ test("Home page is visible", async ({ page }) => {
   await expect(page).toHaveURL("https://superj.app/profile");
 });
 
+test("Superj Survey Page", async ({ page }) => {
+  const Mobile = new Mobileelements_page(page);
+  // Intercept API response for the expected URL
+  const gwsApiPromise = page.waitForResponse(
+    (response) =>
+      response.url().includes("//api.superj.app/v2/admin/gws") &&
+      response.status() === 200
+  );
+  await Superj_app(page, "9705210647", "777777");
+  // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
+  await page.waitForTimeout(4000);
+  // await page.reload();
+  await expect(page).toHaveURL("https://superj.app/Home");
+  // await page.waitForTimeout(4000);
 
+  await Mobile.surveyCard_1();
+  await page.waitForTimeout(2000);
+
+  await Mobile.survey_preview_start();
+  await page.waitForTimeout(2000);
+
+  await Mobile.verifyQuestionScreen();
+  await page.waitForTimeout(2000);
+});
 
 // tests/mobile-login.spec.ts
 // import { test, expect, devices } from "@playwright/test";
