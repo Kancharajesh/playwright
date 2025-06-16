@@ -7,6 +7,7 @@ exports.Login_page = class Login_page {
  
         //Welcome Page.
         this.loginButton = '.Navbar_link__9Nm3x';
+        this.Downloadthe_App = ".Navbar_downloadButton__O0G_G";
 
         // Mobile Number Screen.
         this.Mobilenumber_input_filed= '#phone';
@@ -99,7 +100,9 @@ exports.Login_page = class Login_page {
     }
 
 
-    
+     async Click_Download_the_App() {
+        await this.page.locator(this.Downloadthe_App).click();
+    }
     
     //     await expect(this.page.locator(otpInputs[index])).toBeVisible();
     //     await this.page.locator(otpInputs[index]).fill(value);
