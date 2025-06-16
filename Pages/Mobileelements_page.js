@@ -5,38 +5,48 @@ exports.Mobileelements_page = class Mobileelements_page {
     this.page = page;
 
     // HomePage
-    this.MHome_page = "/html/body/div[1]/div[1]/main/div[1]/div[1]/div[3]/div[1]/div[1]";
+    this.MHome_page =
+      "/html/body/div[1]/div[1]/main/div[1]/div[1]/div[3]/div[1]/div[1]";
     this.MHome_button = ".flex.items-center.relative.flex-col.clickable-effect";
-    this.MWallet_button = "//a[@class='flex flex-col items-center clickable-effect']";
+    this.MWallet_button =
+      "//a[@class='flex flex-col items-center clickable-effect']";
     this.Profile_button = "//img[@alt='profile icon']";
 
     // Wallet page
-    this.Wallet_fullpageview = "(//div[contains(@class,'min-h-screen bg-[#F4F8F8] pt-[0px]')])[1]";
+    this.Wallet_fullpageview =
+      "(//div[contains(@class,'min-h-screen bg-[#F4F8F8] pt-[0px]')])[1]";
     this.CashBalance_info = ".CashBalanceComponent_container__C2GjL";
-    this.Cashout_button = ".CashBalanceComponent_cashoutButton__Yzgyy.clickable-effect";
+    this.Cashout_button =
+      ".CashBalanceComponent_cashoutButton__Yzgyy.clickable-effect";
     this.Cashout_Giftcards = ".GiftCardsComponent_view10__VxszM";
-    this.Cashout_backbutton = "body > div:nth-child(7) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1)";
+    this.Cashout_backbutton =
+      "body > div:nth-child(7) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1)";
 
     // My Gift Cards
-    this.My_Giftcards_viewall = ".MyGiftCardsComponent_button__LXZTd.clickable-effect";
+    this.My_Giftcards_viewall =
+      ".MyGiftCardsComponent_button__LXZTd.clickable-effect";
     this.My_Giftcards = ".MyGiftCards_container__5OYta";
-    this.My_Giftcard_backbutton = "body > div:nth-child(7) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1)";
+    this.My_Giftcard_backbutton =
+      "body > div:nth-child(7) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1)";
 
     // Coupons
     this.coupons_visible = ".RecentCouponsComponent_container__tkT1H";
     this.Recent_coupon_viewall = ".RecentCouponsComponent_buttonText__txFKM";
     this.Recent_all_coupons = ".MyCoupons_container__n3XcM";
-    this.Recent_coupon_backbutton = "div[class='w-full max-w-screen-md'] div:nth-child(1)";
+    this.Recent_coupon_backbutton =
+      "div[class='w-full max-w-screen-md'] div:nth-child(1)";
 
     // Profile page
     this.Profile_fullview = ".profile_container__CYebx";
-  
+
     // Survey card
     this.surveyCard = "(//div)[48]";
     this.Survey_previewbutton = "//div[@class='clickable-effect']";
-    this.Questionscreen = "//body/div/div/main/div/div/div/div[2]/div[1]/div[1]/div[1]"; 
-
+    this.Questionscreen =
+      "//body/div/div/main/div/div/div/div[2]/div[1]/div[1]/div[1]";
   }
+
+  
   // ---------- Homepage ----------
   async gotoHomePage() {
     await this.page.locator(this.MHome_page).scrollIntoViewIfNeeded();
@@ -107,21 +117,15 @@ exports.Mobileelements_page = class Mobileelements_page {
   }
 
   // ---------- Survey ----------
-  async surveyCard_1 (){
+  async surveyCard_1() {
     await this.page.locator(this.surveyCard).click();
   }
 
-  async survey_preview_start(){
+  async survey_preview_start() {
     await this.page.locator(this.Survey_previewbutton).click();
   }
 
-  async verifyQuestionScreen(){
+  async verifyQuestionScreen() {
     await expect(this.page.locator(this.Questionscreen)).toBeVisible();
   }
-
-
-
 };
-
-
- 

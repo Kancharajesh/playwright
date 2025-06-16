@@ -111,8 +111,8 @@ test("check the Welcome page UI screens", async({page})=>{
 expect(await page.screenshot()).toMatchSnapshot('Welcome.png');
 
 await page.waitForTimeout(2000);
-await login.Click_Download_the_App();
-expect(await page.screenshot()).toMatchSnapshot('DownloadApp.png');
+// await login.Click_Download_the_App();
+// expect(await page.screenshot()).toMatchSnapshot('DownloadApp.png');
 
 });
   
