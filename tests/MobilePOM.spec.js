@@ -27,6 +27,8 @@ const Superj_app = async (page, mobile, otp = "777777") => {
   }
 };
 
+
+
 // IRCTC Tourisum
 const IRCTCTourisum = async (page, mobile, otp = "777777") => {
   await page.goto("https://irctctourism.superj.app/Login");
