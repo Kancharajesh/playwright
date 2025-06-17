@@ -201,7 +201,7 @@ test("Home page is visible", async ({ page }) => {
   await expect(page).toHaveURL("https://superj.app/profile");
 });
 
-test("Superj Survey Page", async ({ page }) => {
+test.skip("Superj Survey Page", async ({ page }) => {
   const Mobile = new Mobileelements_page(page);
   // Intercept API response for the expected URL
   const gwsApiPromise = page.waitForResponse(

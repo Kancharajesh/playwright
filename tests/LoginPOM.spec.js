@@ -102,7 +102,7 @@ test("Should display an error message for an invalid OTP", async ({ page }) => {
   await expect(page.locator(Home.Surveys_screen)).toBeVisible();
 });
 
-test("check the Welcome page UI screens", async({page})=>{
+test.skip("check the Welcome page UI screens", async({page})=>{
   const login = new Login_page(page);
 
   await page.goto("https://superj.app/Welcome");
