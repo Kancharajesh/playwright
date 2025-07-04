@@ -31,3 +31,29 @@ test("Navigate to Pricing and verify section", async ({ page }) => {
 });
 
 
+test("Navigate Resources", async ({ page }) => {
+  const IE = new IE_page(page);
+
+  await IE.launch_IE();
+  // navigate to Resources.
+  await IE.clickResources();
+  await page.waitForTimeout(2000);
+  await IE.Case_studypage_visible();
+
+  await page.waitForTimeout(2000);
+  await IE.clickInsight_report();
+  await IE.Insightpage_visible();
+
+  await page.waitForTimeout(2000);
+  await IE.ClickBite_size_snippets();
+  await IE.Bite_size_snippets_visible();
+
+  await page.waitForTimeout(2000);
+  await IE.click_Blogs();
+  await IE.Blogs_page_visible();
+  await page.waitForTimeout(2000);
+
+});
+
+
+

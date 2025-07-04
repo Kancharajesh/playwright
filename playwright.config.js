@@ -35,7 +35,7 @@ retries: process.env.CI ? 1 : 0,
     // trace: 'on',
     // video: 'on',
     // screenshot:'on',
-    // headless:false
+    headless:false
 // -first-retry
   },
 
