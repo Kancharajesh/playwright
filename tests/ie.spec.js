@@ -53,7 +53,12 @@ test("Navigate Resources", async ({ page }) => {
   await IE.Blogs_page_visible();
   await page.waitForTimeout(2000);
 
+
 });
+
+
+
+
 
 
 

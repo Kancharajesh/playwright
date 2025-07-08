@@ -62,6 +62,8 @@ class IE_page {
     await expect(this.page.locator(this.Re_captcha)).toBeVisible();
   }
 
+
+  // Resources Page. Elements.
   async clickResources(){
     await this.page.locator(this.Resource_button).click();
   }

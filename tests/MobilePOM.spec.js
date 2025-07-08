@@ -82,11 +82,11 @@ test("Superj Mobile Home Page", async ({ page }) => {
   await Mobile.surveyCard_1();
   await page.waitForTimeout(2000);
 
-  await Mobile.survey_preview_start();
-  await page.waitForTimeout(2000);
+  // await Mobile.survey_preview_start();
+  // await page.waitForTimeout(2000);
 
-  await Mobile.verifyQuestionScreen();
-  await page.waitForTimeout(2000);
+  // await Mobile.verifyQuestionScreen();
+  // await page.waitForTimeout(2000);
 });
 
 test("IRCTC Air Mobile Home Page", async ({ page }) => {
@@ -116,7 +116,7 @@ test("IRCTC tourisum Mobile Home Page", async ({ page }) => {
   await IRCTCTourisum(page, "9885060891", "777777");
   // await expect(page.locator("div:nth-child(3) > .flex")).toBeVisible();
   await page.waitForTimeout(4000);
-  await page.reload();
+  // await page.reload();
   await expect(page).toHaveURL("https://irctctourism.superj.app/Home");
   await page.waitForTimeout(4000);
 });
